@@ -1,5 +1,6 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 export interface coursesList {
   image: string;
   name: string;
@@ -11,7 +12,7 @@ export interface coursesList {
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, RouterLink],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.css',
 })

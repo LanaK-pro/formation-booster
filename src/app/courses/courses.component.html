@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container mt-4 mb-5">
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col" *ngFor="let coursesList of coursesLists">
       <div class="card h-100">
@@ -12,7 +12,9 @@
           <p>Durée: {{ coursesList.date }}</p>
           <p>Places: {{ coursesList.places }}</p>
           <p>Prix: {{ coursesList.price }}</p>
-          <button class="btn btn-warning mt-auto">S'inscrire</button>
+          <button routerLink="/inscription" class="btn btn-warning mt-auto">
+            S'inscrire
+          </button>
         </div>
       </div>
     </div>

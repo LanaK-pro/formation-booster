@@ -1,1 +1,43 @@
-<p>registration-form works!</p>
+<div class="container mt-4 mb-5">
+  <div class="card bg-dark text-white">
+    <div class="card-body">
+      <h2 class="card-title mb-4">Inscription</h2>
+      <form (ngSubmit)="onSubmit($event)">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nom</label>
+          <input
+            type="text"
+            class="form-control bg-secondary text-white"
+            id="name"
+            placeholder="Entrez votre nom"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control bg-secondary text-white"
+            id="email"
+            placeholder="Entrez votre email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="course" class="form-label">Cours</label>
+          <select class="form-select bg-secondary text-white" id="course">
+            <option selected>Choisissez un cours</option>
+            <option
+              *ngFor="let courseList of coursesLists"
+              [value]="courseList.name"
+            >
+              {{ courseList.name }}
+            </option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-warning">Inscription</button>
+      </form>
+      <button (click)="onButtonClick()" class="btn btn-secondary">
+        Test Button
+      </button>
+    </div>
+  </div>
+</div>
