@@ -1,1 +1,20 @@
-<p>courses works!</p>
+<div class="container mt-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let coursesList of coursesLists">
+      <div class="card h-100">
+        <img src="{{ coursesList.image }}" class="card-img-top" alt="..." />
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title text-dark">{{ coursesList.name }}</h5>
+          <p class="card-text text-dark">
+            Compétences:
+            {{ coursesList.technicalStack }}
+          </p>
+          <p>Durée: {{ coursesList.date }}</p>
+          <p>Places: {{ coursesList.places }}</p>
+          <p>Prix: {{ coursesList.price }}</p>
+          <button class="btn btn-warning mt-auto">S'inscrire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
