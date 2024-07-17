@@ -1,6 +1,16 @@
+<label
+  >Filtre
+  <select (change)="onChange($event)">
+    <option value="All">Tout</option>
+    <option value="Dev">Dev</option>
+    <option value="Design">Design</option>
+    <option value="Infra">Infra</option>
+  </select>
+</label>
+
 <div class="container mt-4 mb-5">
   <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col" *ngFor="let coursesList of coursesLists">
+    <div class="col" *ngFor="let coursesList of filteredCourses">
       <div class="card h-100">
         <img src="{{ coursesList.image }}" class="card-img-top" alt="..." />
         <div class="card-body d-flex flex-column">
@@ -9,9 +19,45 @@
             Compétences:
             {{ coursesList.technicalStack }}
           </p>
+          <p class="card-text text-dark">
+            Compétences:
+            {{ coursesList.domaine }}
+          </p>
+          <div [ngSwitch]="coursesList.domaine">
+            <button
+              *ngSwitchCase="'Dev'"
+              type="button"
+              class="btn btn-outline-info"
+            >
+              Dev
+            </button>
+            <button
+              *ngSwitchCase="'Design'"
+              type="button"
+              class="btn btn-outline-success"
+            >
+              Design
+            </button>
+            <button
+              *ngSwitchCase="'Infra'"
+              type="button"
+              class="btn btn-outline-secondary"
+            >
+              Infra
+            </button>
+          </div>
           <p>Durée: {{ coursesList.date }}</p>
           <p>Places: {{ coursesList.places }}</p>
           <p>Prix: {{ coursesList.price }}</p>
+          <p class="text-danger" *ngIf="coursesList.places <= 15">
+            Formation complete
+          </p>
+          <button
+            (click)="onButtonClick(coursesList.city)"
+            class="btn btn-secondary"
+          >
+            Ville
+          </button>
           <button routerLink="/inscription" class="btn btn-warning mt-auto">
             S'inscrire
           </button>

@@ -18,7 +18,6 @@ export class RegistrationFormComponent {
   }
 
   onButtonClick() {
-    console.log('Test button clicked');
     alert('Test alert!');
   }
 }

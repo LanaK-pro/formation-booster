@@ -25,12 +25,17 @@
           <label for="course" class="form-label">Cours</label>
           <select class="form-select bg-secondary text-white" id="course">
             <option selected>Choisissez un cours</option>
-            <option
+            <optgroup
               *ngFor="let courseList of coursesLists"
-              [value]="courseList.name"
+              [label]="courseList.domaine"
             >
-              {{ courseList.name }}
-            </option>
+              <option
+                *ngFor="let courseList of coursesLists"
+                [value]="courseList.name"
+              >
+                {{ courseList.name }}
+              </option>
+            </optgroup>
           </select>
         </div>
         <button type="submit" class="btn btn-warning">Inscription</button>
