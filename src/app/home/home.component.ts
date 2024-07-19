@@ -10,6 +10,7 @@ import { BonjourService } from '../../shared/bonjour.service';
 })
 export class HomeComponent implements OnInit {
   salut: string = '';
+  resultat: number = 0;
   FIRST_ARTICLE = [
     {
       title: 'TITRE DU SITE',
@@ -24,5 +25,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.salut = this.service.saluer();
+    this.resultat = this.service.additioner(5, 5);
   }
 }

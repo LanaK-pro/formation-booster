@@ -9,4 +9,8 @@ export class BonjourService {
   saluer(): string {
     return 'Bonjour';
   }
+
+  additioner(a: number, b: number): number {
+    return a + b;
+  }
 }

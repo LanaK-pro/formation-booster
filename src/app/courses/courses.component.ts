@@ -1,6 +1,8 @@
 import { NgFor, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { MangaService } from '../../shared/manga.service';
+import { Imanga } from '../../shared/imanga';
 export interface coursesList {
   image: string;
   name: string;
@@ -18,7 +20,10 @@ export interface coursesList {
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.css',
 })
-export class CoursesComponent {
+export class CoursesComponent implements OnInit {
+  //mangas: Imanga[] = [];
+  //constructor(private service: MangaService) {}
+
   coursesLists: coursesList[] = [
     {
       image:
@@ -86,8 +91,9 @@ export class CoursesComponent {
   //Tableau de cours filtré vide
   filteredCourses: any[] = [];
 
-  //Le tableau filtré c'est le même que celui de cours
+  //Le tableau filtré c'est le même que celui de cours, TABLEAU MANGA
   ngOnInit() {
+    //this.mangas = this.service.fetchAll();
     this.filteredCourses = this.coursesLists;
   }
 
