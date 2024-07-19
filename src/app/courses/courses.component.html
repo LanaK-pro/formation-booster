@@ -1,7 +1,11 @@
-<label
+<label class="ms-2"
   >Filtre
-  <select (change)="onChange($event)">
-    <option value="All">Tout</option>
+  <select
+    class="form-select ms-2"
+    aria-label="Default select example"
+    (change)="onChange($event)"
+  >
+    <option selected value="All">Tout</option>
     <option value="Dev">Dev</option>
     <option value="Design">Design</option>
     <option value="Infra">Infra</option>

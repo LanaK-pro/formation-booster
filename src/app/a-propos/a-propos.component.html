@@ -1,0 +1,22 @@
+<div [ngClass]="{ active: isActive, disabled: isDisabled }">
+  Ce texte change de style
+</div>
+
+<button (click)="isActive = !isActive">Actif</button>
+
+<button (click)="isDisabled = !isDisabled">Inactif</button>
+
+<hr />
+
+<div
+  [ngStyle]="{
+    'background-color': isLight ? 'yellow' : 'white',
+    'font-size.px': fontSize,
+  }"
+>
+  Le texte a un style dynamique
+</div>
+<button (click)="isLight = !isLight">Toggle Highlight</button>
+<button (click)="fontSize = fontSize + 2">Augmente la fontsize</button>
+<button (click)="fontSize = fontSize - 2">Diminue la fontsize</button>
+<button (click)="fontSize = 20">Reset la taille</button>

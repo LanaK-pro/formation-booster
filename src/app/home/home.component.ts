@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { BonjourService } from '../../shared/bonjour.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,8 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  salut: string = '';
   FIRST_ARTICLE = [
     {
       title: 'TITRE DU SITE',
@@ -15,4 +17,12 @@ export class HomeComponent {
       img: 'https://www.openlab-clermont.com/wp-content/uploads/2022/04/logo-human-booster.jpg',
     },
   ];
+
+  //Injection de service
+
+  constructor(private service: BonjourService) {}
+
+  ngOnInit(): void {
+    this.salut = this.service.saluer();
+  }
 }
