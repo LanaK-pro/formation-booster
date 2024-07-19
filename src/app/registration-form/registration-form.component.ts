@@ -10,7 +10,7 @@ import { NgFor } from '@angular/common';
 })
 export class RegistrationFormComponent {
   //Pour importer les données de courses dans le courses component
-  coursesLists = new CoursesComponent().coursesLists;
+  //coursesLists = new CoursesComponent().courses;
   onSubmit(event: Event) {
     event.preventDefault(); // Prevent the default form submission
     console.log('Form submitted');

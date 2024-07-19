@@ -1,4 +1,4 @@
-import { Imanga } from './imanga';
+import { Imanga } from '../interface/imanga';
 
 export const mockMangas: Imanga[] = [
   {

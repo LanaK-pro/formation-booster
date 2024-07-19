@@ -1,4 +1,4 @@
-import { Ipokemons } from './ipokemons';
+import { Ipokemons } from '../interface/ipokemons';
 
 export const mockPokemons: Ipokemons[] = [
   {

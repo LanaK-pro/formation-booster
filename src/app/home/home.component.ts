@@ -1,14 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { BonjourService } from '../../shared/bonjour.service';
+//import { BonjourService } from '../../shared/bonjour.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent /* implements OnInit */ {
   salut: string = '';
   resultat: number = 0;
   FIRST_ARTICLE = [
@@ -21,10 +22,10 @@ export class HomeComponent implements OnInit {
 
   //Injection de service
 
-  constructor(private service: BonjourService) {}
+  /* constructor(private service: BonjourService) {}
 
   ngOnInit(): void {
     this.salut = this.service.saluer();
     this.resultat = this.service.additioner(5, 5);
-  }
+  } */
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Ipokemons } from '../../shared/ipokemons';
-import { PokemonService } from '../../shared/pokemon.service';
+import { Ipokemons } from '../../shared/interface/ipokemons';
+import { PokemonService } from '../../shared/services/pokemon.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
