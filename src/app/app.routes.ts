@@ -4,6 +4,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { AProposComponent } from './a-propos/a-propos.component';
 import { PokemonsComponent } from './pokemons/pokemons.component';
+import { BlogComponent } from './blog/blog.component';
+import { CommentComponent } from './comment/comment.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -11,4 +13,6 @@ export const routes: Routes = [
   { path: 'inscription', component: RegistrationFormComponent },
   { path: 'toggle', component: AProposComponent },
   { path: 'pokemon', component: PokemonsComponent },
+  { path: 'blog', component: BlogComponent },
+  { path: 'comment', component: CommentComponent },
 ];

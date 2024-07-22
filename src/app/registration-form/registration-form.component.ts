@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CoursesComponent } from '../courses/courses.component';
 import { NgFor } from '@angular/common';
 @Component({
   selector: 'app-registration-form',
@@ -10,7 +9,7 @@ import { NgFor } from '@angular/common';
 })
 export class RegistrationFormComponent {
   //Pour importer les données de courses dans le courses component
-  //coursesLists = new CoursesComponent().courses;
+  //coursesLists = new CoursesComponent(fetch).courses;
   onSubmit(event: Event) {
     event.preventDefault(); // Prevent the default form submission
     console.log('Form submitted');

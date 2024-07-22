@@ -1,3 +1,11 @@
+<app-card
+  [messageCard]="messageParent"
+  (numberEnfant)="multiplier($event)"
+></app-card>
+
+<hr />
+<p>Multiplier parent : {{ resultat }}</p>
+<hr />
 <label class="ms-2"
   >Filtre
   <select

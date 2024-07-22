@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Iarticles } from '../../shared/interface/iarticles';
+import { ArticlesService } from '../../shared/services/articles.service';
 //import { BonjourService } from '../../shared/bonjour.service';
 
 @Component({
@@ -9,17 +11,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent /* implements OnInit */ {
+export class HomeComponent {
   salut: string = '';
   resultat: number = 0;
-  FIRST_ARTICLE = [
-    {
-      title: 'TITRE DU SITE',
-      content: 'test de content',
-      img: 'https://www.openlab-clermont.com/wp-content/uploads/2022/04/logo-human-booster.jpg',
-    },
-  ];
+  article: Iarticles[] = [];
 
+  constructor(private service: ArticlesService) {}
+
+  /* ngOnInit(): void {
+    this.article = this.service.fetchFirstArticle;
+  }
   //Injection de service
 
   /* constructor(private service: BonjourService) {}

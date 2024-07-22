@@ -1,8 +1,9 @@
 import { NgFor, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Icourses } from '../../shared/interface/courses';
+import { Icourses } from '../../shared/interface/icourses';
 import { CoursesService } from '../../shared/services/courses.service';
+import { CardComponent } from '../card/card.component';
 export interface coursesList {
   image: string;
   name: string;
@@ -16,11 +17,19 @@ export interface coursesList {
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [NgFor, RouterLink, NgIf, NgSwitch, NgSwitchCase],
+  imports: [NgFor, RouterLink, NgIf, NgSwitch, NgSwitchCase, CardComponent],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.css',
 })
 export class CoursesComponent implements OnInit {
+  messageParent: string | undefined = '';
+
+  resultat: number = 0;
+
+  multiplier(montant: number) {
+    this.resultat = montant * 2;
+    console.log(this.resultat);
+  }
   //mangas: Imanga[] = [];
   //constructor(private service: MangaService) {}
 
