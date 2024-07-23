@@ -14,4 +14,8 @@ export class BlogService {
   fetchAll() {
     return this.http.get<Iblog[]>(this.url);
   }
+
+  fetchOne(id: any) {
+    return this.http.get<Iblog>(`${this.url}/${id}`);
+  }
 }
