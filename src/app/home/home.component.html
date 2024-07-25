@@ -7,3 +7,57 @@
     </div>
   </div>
 </div>
+
+<div class="alert alert-info" role="alert">
+  Si c'est true il y a une erreur, si c'est null c'est ok, sinon il va display
+  les conditions encore // Required: true, donc a besoin du nom
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <p>message : {{ form.controls["name"].errors | json }}</p>
+  @if (
+    (form.controls["name"].invalid && form.controls["name"].touched) ||
+    form.controls["name"].dirty
+  ) {
+    @if (form.controls["name"].errors?.["minlength"]) {
+      <div class="alert alert-danger">trop court</div>
+    }
+    @if (form.controls["name"].errors?.["maxlength"]) {
+      <div class="alert alert-danger">trop long</div>
+    }
+  }
+  <input type="text" formControlName="name" placeholder=" name" />
+  <p>message : {{ form.controls["email"].errors | json }}</p>
+
+  @if (
+    (form.controls["email"].invalid && form.controls["email"].touched) ||
+    form.controls["email"].dirty
+  ) {
+    @if (form.controls["email"].errors?.["email"]) {
+      <div class="alert alert-danger">email invalide</div>
+    }
+  }
+  <input type="email" formControlName="email" placeholder=" email" />
+  @if (
+    (form.controls["mdp"].invalid && form.controls["mdp"].touched) ||
+    form.controls["mdp"].dirty
+  ) {
+    @if (form.controls["mdp"].errors?.["minlength"]) {
+      <div class="alert alert-danger">mot de passe trop court</div>
+    }
+    @if (form.controls["mdp"].errors?.["maxlength"]) {
+      <div class="alert alert-danger">mot de passe trop long</div>
+    }
+    @if (form.controls["mdp"].errors?.["pattern"]) {
+      <div class="alert alert-danger">
+        mot de passe necessite une majuscule et un nombre et un character
+        special
+      </div>
+    }
+  }
+
+  <p>message : {{ form.controls["mdp"].errors | json }}</p>
+
+  <input type="password" formControlName="mdp" placeholder=" password" />
+
+  <button>Valider</button>
+</form>
