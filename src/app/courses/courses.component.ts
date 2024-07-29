@@ -1,9 +1,22 @@
-import { NgFor, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
-import { Component, NgModule, OnInit, Output } from '@angular/core';
+import {
+  CommonModule,
+  NgFor,
+  NgIf,
+  NgSwitch,
+  NgSwitchCase,
+  SlicePipe,
+  UpperCasePipe,
+} from '@angular/common';
+import { Component, NgModule, OnInit, Output, Pipe } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Icourses } from '../../shared/interface/icourses';
 import { CoursesService } from '../../shared/services/courses.service';
 import { CardComponent } from '../card/card.component';
+import { ToDollarsPipe } from '../../shared/to-dollars.pipe';
+import { CbPipe } from '../../shared/cb.pipe';
+import { TvaPipe } from '../../shared/tva.pipe';
+import { FormsModule } from '@angular/forms';
+import { RecherchePipe } from '../../shared/recherche.pipe';
 export interface coursesList {
   image: string;
   name: string;
@@ -17,11 +30,26 @@ export interface coursesList {
 @Component({
   selector: 'app-courses',
   standalone: true,
-  imports: [NgFor, RouterLink, NgIf, NgSwitch, NgSwitchCase, CardComponent],
+  imports: [
+    NgFor,
+    RouterLink,
+    NgIf,
+    NgSwitch,
+    NgSwitchCase,
+    CardComponent,
+    CommonModule,
+    ToDollarsPipe,
+    CbPipe,
+    TvaPipe,
+    FormsModule,
+    RecherchePipe,
+  ],
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.css',
 })
 export class CoursesComponent implements OnInit {
+  search = '';
+  today = new Date();
   messageParent: string | undefined = '';
 
   resultat: number = 0;
@@ -34,8 +62,17 @@ export class CoursesComponent implements OnInit {
   //constructor(private service: MangaService) {}
 
   courses: Icourses[] = [];
+  coursesToString: Icourses[] = [];
 
   constructor(private service: CoursesService) {}
+
+  /* toString(): string[] {
+    const courseStrings: string[] = this.courses.map((course) =>
+      JSON.stringify(course),
+    );
+
+    return courseStrings;
+  } */
 
   //Pour les villes de chaques formation
   onButtonClick(message: string) {

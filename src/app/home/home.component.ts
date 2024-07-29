@@ -84,7 +84,7 @@ export class HomeComponent {
         Validators.maxLength(50),
         Validators.required,
         Validators.pattern(
-          '^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$',
+          '^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*/])[a-zA-Z0-9!@#$%^&*/]{8,}$',
         ),
       ],
     }),
